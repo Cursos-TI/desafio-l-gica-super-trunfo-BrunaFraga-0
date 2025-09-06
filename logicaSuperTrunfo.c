@@ -2,6 +2,7 @@
 
 int main() {
     printf("--------------------------------------------------------------\n");
+    printf("--------------------------------------------------------------\n");
     printf("                      JOGO SUPER TRUNFO                       \n");
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
@@ -58,7 +59,7 @@ int main() {
 // Entrada de dados C2
     // Solicitando ao usuário que insira as informações para cadastro da C2
     printf("Insira o Estado (uma letra entre A e H): \n");
-    scanf("%c", &estado_C2); //O espaço antes de % é porque o programa está lendo diretamente a próxima linha. Foi a forma que encontrei de resolver, pequisando na internet.
+    scanf(" %c", &estado_C2); //O espaço antes de %c é porque o programa está lendo diretamente a próxima linha. Dessa forma o programa entende que deve ignorar qualquer espaço em branco ou enter antes do caractere.
     printf("Insira o código da carta (a letra do Estado + um número de 01 a 04): \n");
     scanf("%s", &codigo_C2);
     printf("Insira o nome da cidade: \n");
@@ -81,6 +82,12 @@ int main() {
     super_poder_C2 = (float)populacao_C2 + area_C2 + pib_C2 + pib_percapita_C2 + (float)p_turistico_C2 + (1 / densidade_pop_C2);
     //Super_poder_C2 = (float)populacao + area + pib + (float)p_turisticos + pib_percapita + (1 / densidade_pop)
 
+    printf("--------------------------------------------------------------\n");
+    printf("--------------------------------------------------------------\n");
+    printf("*****                Cartas Cadastradas                  *****\n");
+    printf("--------------------------------------------------------------\n");
+    printf("--------------------------------------------------------------\n");
+
 // Saída de dados
     // Imprimindo as informações cadastradas para C1
     printf("CARTA 1\n");
@@ -90,12 +97,11 @@ int main() {
     printf("Nome da cidade: %s\n", cidade_C1);
     printf("População: %lu habitantes\n", populacao_C1); 
     printf("Área: %.3f km²\n", area_C1);
-    printf("PIB: %.2f bilhões de reais\n", pib_C1 / 1000000000); 
+    printf("PIB: %.1f bilhões de reais\n", pib_C1 / 1000000000); 
     printf("Número de pontos turísticos: %d\n", p_turistico_C1);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade_pop_C1);
     printf("PIB per Capita: R$ %.2f\n", pib_percapita_C1);
     printf("Super Poder: %.2f\n", super_poder_C1);
-    printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
 
     // Imprimindo as informações cadastradas para C2
@@ -106,32 +112,74 @@ int main() {
     printf("Nome da cidade: %s\n", cidade_C2);
     printf("População: %lu habitantes\n", populacao_C2); 
     printf("Área: %.3f km²\n", area_C2);
-    printf("PIB: %.2f bilhões de reais\n", pib_C2 / 1000000000); 
+    printf("PIB: %.1f bilhões de reais\n", pib_C2 / 1000000000); 
     printf("Número de pontos turísticos: %d\n", p_turistico_C2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade_pop_C2);
     printf("PIB per Capita: R$ %.2f\n", pib_percapita_C2);
     printf("Super Poder: %.2f\n", super_poder_C2); 
+    
+    printf("--------------------------------------------------------------\n");
+    printf("--------------------------------------------------------------\n");
+    printf("*****               Comparando os Atributos              *****\n");
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
 
+// Implementando a lógica para comparação de cada atributo entre as duas cartas cadastradas
+    printf("Atributo: População\n");
+    if (populacao_C1 > populacao_C2) {
+        printf("%s tem maior população.", cidade_C1);
+    } else {
+        printf("%s tem maior população.", cidade_C2);
+    }
+    printf("--------------------------------------------\n");
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+     printf("Atributo: Área\n");
+    if (area_C1 > area_C2) {
+        printf("%s tem maior área.", cidade_C1);
+    } else {
+        printf("%s tem maior área.", cidade_C2);
+    }
+    printf("--------------------------------------------\n");
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+     printf("Atributo: PIB\n");
+    if (pib_C1 > pib_C2) {
+        printf("%s tem maior PIB.", cidade_C1);
+    } else {
+        printf("%s tem maior PIB.", cidade_C2);
+    }
+    printf("--------------------------------------------\n");
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+     printf("Atributo: Pontos Turísticos\n");
+    if (p_turistico_C1 > p_turistico_C2) {
+        printf("%s tem mais pontos turísticos.", cidade_C1);
+    } else {
+        printf("%s tem mais pontos turísticos.", cidade_C2);
+    }
+    printf("--------------------------------------------\n");
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+     printf("Atributo: Densidade Populacional\n");
+    if (densidade_pop_C1 < densidade_pop_C2) { // Nesse atributo a lógica de comparação inverte, vence a cidade que tem menor densidade populacional
+        printf("%s tem menor densidade populacional.", cidade_C1);
+    } else {
+        printf("%s tem menor densidade populacional.", cidade_C2);
+    }
+    printf("--------------------------------------------\n");
+
+     printf("Atributo: PIB per Capita\n");
+    if (pib_percapita_C1 > pib_percapita_C2) {
+        printf("%s tem maior PIB per Capita.", cidade_C1);
+    } else {
+        printf("%s tem maior PIB per Capita.", cidade_C2);
+    }
+    printf("--------------------------------------------\n");
+
+    printf("Atributo: SUPER PODER\n"); 
+    if (super_poder_C1 > super_poder_C2) {
+        printf("%s tem maior super poder.", cidade_C1);
+    } else {
+        printf("%s tem maior super poder.", cidade_C2);
+    }
+    printf("--------------------------------------------\n");
 
     return 0;
 }
