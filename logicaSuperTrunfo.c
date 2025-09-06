@@ -116,7 +116,21 @@ int main() {
     printf("Densidade Populacional: %.2f hab/km²\n", densidade_pop_C2);
     printf("PIB per Capita: R$ %.2f\n", pib_percapita_C2);
     printf("Super Poder: %.2f\n", super_poder_C2); 
-    
+    printf("--------------------------------------------------------------\n");
+    printf("--------------------------------------------------------------\n");
+
+// Implementando um Menu Interativo para que o usuário escolha qual atributo quer usar como base para comparação e definição da carta vencedora nessa rodada do jogo Super Trunfo 
+    int opcao;    
+    printf("Escolha qual atributo você quer usar para comparação entre as cartas: \n");
+    printf("1 - População\n");
+    printf("2 - Área\n");
+    printf("3 - PIB\n");
+    printf("4 - Pontos Turísticos\n");
+    printf("5 - Densidade Populacional\n");
+    printf("6 - PIB per Capita\n");
+    printf("7 - Super Poder\n");
+    scanf("%d", &opcao);
+
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
     printf("*****               Comparando os Atributos              *****\n");
