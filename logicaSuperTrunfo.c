@@ -134,6 +134,47 @@ int main() {
     printf("7 - Super Poder\n");
     scanf("%d", &atributo1);
 
+// Implementando a lógica para comparação das cartas, com base no primeiro atributo escolhido pelo usuário e usando operador ternário (condição ? caso verdadeiro : caso falso)
+    switch (atributo1) {
+        case 1: {
+            populacao_C1 > populacao_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+            break;
+        }
+
+        case 2: {
+            area_C1 > area_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+            break;
+        }
+
+        case 3: {
+            pib_C1 > pib_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+            break;
+        }
+
+        case 4: {
+            p_turistico_C1 > p_turistico_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+            break;
+        }
+
+        case 5: {
+            densidade_pop_C1 < densidade_pop_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+            break;
+        }
+
+        case 6: {
+            pib_percapita_C1 > pib_percapita_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+            break;
+        }
+
+        case 7: {
+            super_poder_C1 > super_poder_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+            break;
+        }
+
+        default: {
+            printf("Opção inválida! Programa Encerrado.");
+        }
+    }
     printf("--------------------------------------------------------------\n");
     
     // Menu Interativo para escolha do segundo atributo para comparação
@@ -147,6 +188,53 @@ int main() {
     printf("6 - PIB per Capita\n");
     printf("7 - Super Poder\n");
     scanf("%d", &atributo2);
+
+// Implementando a lógica para comparação das cartas, com base no segundo atributo escolhido pelo usuário
+    if (atributo2 == atributo1) {
+        printf("Opção inválida! Você não pode escolher o mesmo atributo que escolheu anteriormente! Programa Encerrado.");
+        return 0; // Encerra o programa caso o usuário escolha o mesmo atributo
+    } else {
+        switch (atributo2) {
+            case 1: {
+                populacao_C1 > populacao_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+                break;
+            }
+
+            case 2: {
+                area_C1 > area_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+                break;
+            }
+
+            case 3: {
+                pib_C1 > pib_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+                break;
+            }
+
+            case 4: {
+                p_turistico_C1 > p_turistico_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+                break;
+            }
+
+            case 5: {
+                densidade_pop_C1 < densidade_pop_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+                break;
+            }
+
+            case 6: {
+                pib_percapita_C1 > pib_percapita_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+                break;
+            }
+
+            case 7: {
+                super_poder_C1 > super_poder_C2 ? pontos_C1++ : pontos_C2++; // Operador Ternário: caso a carta 1 vença, acrescenta-se 1 ponto no pontuação dela (pontos_C1), caso contrário acrescenta-se 1 ponto na pontuação da carta 2 (pontos_C2)
+                break;
+            }
+
+            default: {
+                printf("Opção inválida! Programa Encerrado.");
+            }
+        }    
+    }    
 
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
