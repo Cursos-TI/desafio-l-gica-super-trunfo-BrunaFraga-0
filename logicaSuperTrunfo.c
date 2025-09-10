@@ -320,5 +320,17 @@ if (atributo1 == 1) {
         printf("--------------------------------------------------------------\n");
     }
 
+// Implementando a lógica para determinar o vencedor da partida, com base na pontuação final de cada carta (pontos_C1 e pontos_C2) e imprimindo o resultado
+    if (pontos_C1 > pontos_C2) {
+        printf("===> VENCEDORA: A Carta 1 (%s), com %d pontos! <===\n", cidade_C1, pontos_C1);
+        printf("A Carta 2 (%s) perdeu com %d pontos.\n", cidade_C2, pontos_C2);
+    } else if (pontos_C2 > pontos_C1) {
+        printf("===> VENCEDORA: A Carta 2 (%s), com %d pontos! <===\n", cidade_C2, pontos_C2);
+        printf("A Carta 1 (%s) perdeu com %d pontos.\n", cidade_C1, pontos_C1);
+    } else {
+        printf("===> EMPATE! Ambas as cartas (%s e %s) têm a mesma pontuação (%d). <===\n", cidade_C1, cidade_C2, pontos_C1);
+    }
+    printf("--------------------------------------------------------------\n");    
+
     return 0;
 }
