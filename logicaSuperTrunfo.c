@@ -10,31 +10,34 @@ int main() {
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
 
-// Cadastrando as cartas para o jogo Super Trunfo, reutilizando o código criado para tal no primeiro desafio da disciplina de Introdução à Programação de Computadores
-    
-    // Declarando as variáveis para a Carta 1 (C1) 
+// Declarando as variáveis globais relacionadas ao jogo Super Trunfo
+    // Declarando as variáveis relacionadas a Carta 1 (C1) 
     char estado_C1, codigo_C1[10], cidade_C1[50];
-    int p_turistico_C1;
+    int p_turistico_C1, pontos_C1 = 0;  // Adicionando variável pontos_C1 para armazenar a pontuação da Carta 1 e inicializando ela com 0
     unsigned long int populacao_C1;
     float area_C1, pib_C1, densidade_pop_C1, pib_percapita_C1, super_poder_C1;
 
-    // Declarando as variáveis para a Carta 2 (C2)
+    // Declarando as variáveis relacionadas a Carta 2 (C2)
     char estado_C2, codigo_C2[10], cidade_C2[50];
-    int p_turistico_C2;
+    int p_turistico_C2, pontos_C2;  // Adicionando variável pontos_C1 para armazenar a pontuação da Carta 1 e inicializando ela com 0
     unsigned long int populacao_C2;
     float area_C2, pib_C2, densidade_pop_C2, pib_percapita_C2, super_poder_C2;
 
-//Cadastrando a Carta 1 (C1)
+    // Declarando as variáveis para armazenar as escolhas dos dois atributos para comparação pelo usuário
+    int atributo1, atributo2;
+
+// Cadastrando as cartas para o jogo Super Trunfo, reutilizando o código criado para tal no primeiro desafio da disciplina de Introdução à Programação de Computadores
+    //Cadastrando a Carta 1 (C1)
     printf("CARTA 1\n\n");
 
-// Entrada de dados C1
+    // Entrada de dados C1
     // Solicitando ao usuário que insira as informações para cadastro da C1
     printf("Insira o Estado (uma letra entre A e H - ex: A): \n");
-    scanf("%c", &estado_C1);
+    scanf(" %c", &estado_C1);    // O espaço antes de %c é porque o programa está lendo diretamente a próxima linha. Dessa forma o programa entende que deve ignorar qualquer espaço em branco ou enter antes do caractere.
     printf("Insira o código da carta (a letra do Estado + um número de 01 a 04 - Ex: A01): \n");
     scanf("%s", &codigo_C1);
     printf("Insira o nome da cidade: \n");
-    scanf("%s", &cidade_C1);
+    scanf(" %[^\n]", &cidade_C1);   // O espaço tem a mesma funcionalidade do explicado anteriormente, já o %[^\n] serve para ler strings com espaços como "Santa Catarina" por exemplo.
     printf("Insira a população da cidade: \n");
     scanf("%lu", &populacao_C1);
     printf("Insira a área da cidade (em km²): \n");
@@ -46,25 +49,25 @@ int main() {
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
 
-// Incluindo as operações para atribuir os valores das variáveis da C1 (densidade_pop_C1 / pib_percapita_C1 / super_poder_C1)
+    // Incluindo as operações para atribuir os valores das variáveis da C1 (densidade_pop_C1 / pib_percapita_C1 / super_poder_C1)
     /* As informações necessárias para calcular essas variáveis já foram inseridas pelo usuário na entrada de dados C1*/
-    densidade_pop_C1 = (float)populacao_C1 / area_C1; //densidade populacional = população da cidade / área da cidade
-    pib_percapita_C1 = pib_C1 / (float)populacao_C1; //pib per capita = pib da cidade / população da cidade  
+    densidade_pop_C1 = (float)populacao_C1 / area_C1;   //densidade populacional = população da cidade / área da cidade
+    pib_percapita_C1 = pib_C1 / (float)populacao_C1;    //pib per capita = pib da cidade / população da cidade  
     super_poder_C1 = (float)populacao_C1 + area_C1 + pib_C1 + pib_percapita_C1 + (float)p_turistico_C1 + (1 / densidade_pop_C1);
-    //Super_poder_C1 = (float)populacao + area + pib + (float)p_turisticos + pib_percapita + (1 / densidade_pop)
+                                                        //Super_poder_C1 = populacao + area + pib + p_turisticos + pib_percapita + (1 / densidade_pop)
 
 
-//Cadastrando a Carta 2 (C2)
+    //Cadastrando a Carta 2 (C2)
     printf("CARTA 2\n\n");
 
-// Entrada de dados C2
+    // Entrada de dados C2
     // Solicitando ao usuário que insira as informações para cadastro da C2
     printf("Insira o Estado (uma letra entre A e H): \n");
-    scanf(" %c", &estado_C2); //O espaço antes de %c é porque o programa está lendo diretamente a próxima linha. Dessa forma o programa entende que deve ignorar qualquer espaço em branco ou enter antes do caractere.
+    scanf(" %c", &estado_C2);   // O espaço antes de %c é porque o programa está lendo diretamente a próxima linha. Dessa forma o programa entende que deve ignorar qualquer espaço em branco ou enter antes do caractere.
     printf("Insira o código da carta (a letra do Estado + um número de 01 a 04): \n");
     scanf("%s", &codigo_C2);
     printf("Insira o nome da cidade: \n");
-    scanf("%s", &cidade_C2);
+    scanf(" %[^\n]", &cidade_C2);   //O espaço tem a mesma funcionalidade do explicado anteriormente, já o %[^\n] serve para ler strings com espaços como "Sao Jose" por exemplo.
     printf("Insira a população da cidade: \n");
     scanf("%lu", &populacao_C2);
     printf("Insira a área da cidade (em km²): \n");
@@ -74,12 +77,12 @@ int main() {
     printf("Insira o número de pontos turísticos da cidade: \n");
     scanf("%d", &p_turistico_C2);
     
-// Incluindo as operações para atribuir os valores das variáveis da C1 (densidade_pop_C2 / pib_percapita_C2 / super_poder_C2)
+    // Incluindo as operações para atribuir os valores das variáveis da C1 (densidade_pop_C2 / pib_percapita_C2 / super_poder_C2)
     /* As informações necessárias para calcular essas variáveis já foram inseridas pelo usuário na entrada de dados C2*/
-    densidade_pop_C2 = (float)populacao_C2 / area_C2; //densidade populacional = população da cidade / área da cidade
-    pib_percapita_C2 = pib_C2/ (float)populacao_C2; //pib per capita = pib da cidade / população da cidade
+    densidade_pop_C2 = (float)populacao_C2 / area_C2;   //densidade populacional = população da cidade / área da cidade
+    pib_percapita_C2 = pib_C2 / (float)populacao_C2;    //pib per capita = pib da cidade / população da cidade
     super_poder_C2 = (float)populacao_C2 + area_C2 + pib_C2 + pib_percapita_C2 + (float)p_turistico_C2 + (1 / densidade_pop_C2);
-    //Super_poder_C2 = (float)populacao + area + pib + (float)p_turisticos + pib_percapita + (1 / densidade_pop)
+                                                        //Super_poder_C2 = (float)populacao + area + pib + (float)p_turisticos + pib_percapita + (1 / densidade_pop)
 
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
@@ -119,9 +122,9 @@ int main() {
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
 
-// Implementando um Menu Interativo para que o usuário escolha qual atributo quer usar como base para comparação e definição da carta vencedora nessa rodada do jogo Super Trunfo 
-    int opcao;    
-    printf("Escolha qual atributo você quer usar para comparação entre as cartas: \n");
+// Implementando Menu Interativo para que o usuário escolha DOIS atributos para usar como base para comparação e definição da carta vencedora nessa rodada do jogo Super Trunfo 
+    // Menu Interativo para escolha do primeiro atributo para comparação
+    printf("Escolha o primeiro atributo para usar na comparação entre as cartas: \n");
     printf("1 - População\n");
     printf("2 - Área\n");
     printf("3 - PIB\n");
@@ -129,8 +132,22 @@ int main() {
     printf("5 - Densidade Populacional\n");
     printf("6 - PIB per Capita\n");
     printf("7 - Super Poder\n");
-    scanf("%d", &opcao);
+    scanf("%d", &atributo1);
+
+    printf("--------------------------------------------------------------\n");
     
+    // Menu Interativo para escolha do segundo atributo para comparação
+    printf("Escolha o segundo atributo para usar na comparação entre as cartas: \n");
+    printf("ATENÇÃO: Você não pode escolher o mesmo atributo que escolheu anteriormente!\n");
+    printf("1 - População\n");
+    printf("2 - Área\n");
+    printf("3 - PIB\n");
+    printf("4 - Pontos Turísticos\n");
+    printf("5 - Densidade Populacional\n");
+    printf("6 - PIB per Capita\n");
+    printf("7 - Super Poder\n");
+    scanf("%d", &atributo2);
+
     printf("--------------------------------------------------------------\n");
     printf("--------------------------------------------------------------\n");
     printf("*****             Resultado Final da Partida             *****\n");
